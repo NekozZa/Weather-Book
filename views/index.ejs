@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <form action="/submit" method="post">
+        <input type="text" name="city">
+        <input type="submit" value="send"> 
+    </form>
+
+    <div class="container">
+        <% if (locals.data) { %>
+            <ul>    
+                <li>
+                    <h2><%= data.weather.main %></h2>
+                    <p><%= data.weather.description %></p>
+                </li>
+                <li>Temp: <%= data.temp %></li>
+                <li>Humidity: <%= data.humidity %></li>
+            </ul>
+        <% } %>
+    </div>
+</body>
+</html>
