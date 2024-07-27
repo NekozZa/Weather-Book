@@ -3,25 +3,53 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.3.0/fonts/remixicon.css" rel="stylesheet"/>
+    <link rel="stylesheet" href="/style/style.css">
     <title>Document</title>
 </head>
 <body>
-    <form action="/submit" method="post">
-        <input type="text" name="city">
-        <input type="submit" value="send"> 
-    </form>
+    <div class="app">
+        <div class="search card">
+            <h2>Weather Book</h1>
 
-    <div class="container">
-        <% if (locals.data) { %>
-            <ul>    
-                <li>
-                    <h2><%= data.weather.main %></h2>
-                    <p><%= data.weather.description %></p>
-                </li>
-                <li>Temp: <%= data.temp %></li>
-                <li>Humidity: <%= data.humidity %></li>
-            </ul>
-        <% } %>
+            <form action="/submit" method="post">
+                <input type="text" name="city" placeholder="Enter your location">
+                <button type="submit"><i class="ri-search-line"></i></button>
+            </form>
+
+            <% if (locals.error) { %>
+                <p><%= error %></p>
+            <% } %>
+        </div>
+        
+    
+        <div class="container card">
+            <% if (locals.data) { %>
+                <ul>    
+                    <li class="weather">
+                        <h2><%= data.weather.main %></h2>
+                        <p><%= data.weather.description %></p>
+                    </li>
+                    <li class="weather-icon">
+                        <% if (data.weather.main.includes('Clouds')) { %>
+                            <i class="ri-cloud-line"></i>
+                        <% } else if (data.weather.main.includes('Rain')) { %>
+                            <i class="ri-rainy-line"></i>
+                        <% } else if (data.weather.main.includes('Snow')) { %>
+                            <i class="ri-snowflake-line"></i>
+                        <% } else if (data.weather.main.includes('Clear')) { %>
+                            <i class="ri-sun-line"></i>
+                        <% } else if (data.weather.main.includes('Thunderstorm')) {%>
+                            <i class="ri-thunderstorms-line"></i>
+                        <% } %>
+                    </li>
+                    <li class="details">
+                        <p>Temp: <%= Math.round(data.temp - 273.15) %><i class="ri-celsius-line"></i></p>
+                        <p>Humidity: <%= data.humidity %></p>
+                    </li>
+                </ul>
+            <% } %>
+        </div>
     </div>
 </body>
 </html>

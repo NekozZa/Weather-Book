@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Space+Mono:ital,wght@0,400;0,700;1,400;1,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+* {
+    font-family: "Space Mono", monospace;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    width: 100vw;
+    height: 100vh;    
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app {
+    display: flex;
+    align-items: center;
+
+}
+
+.card {
+    width: 20rem;
+    height: 20rem;
+
+    border: 2px dotted #173B45;
+    border-radius: 0.3rem;
+    padding: 1rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app .search {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.app .search h2 {
+    letter-spacing: 0.15rem;
+    font-family: "Poppins", sans-serif;
+
+    position: relative;
+    top: -3rem;
+}
+
+.app .search p {
+    position: relative;
+    bottom: -3rem;
+    color: red;
+}
+
+.app form {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 1.5rem;    
+}
+
+form input {
+    border: 1px solid black;
+    border-radius: 0.5rem;
+    padding: 0.4rem 0.5rem;
+
+    transition: transform 0.3s ease 0s;
+}
+
+
+form input:focus {
+    outline: 1px solid #1A3636;
+    transform: translateY(-5px);
+}
+
+form input:hover {
+    transform: translateY(-5px);
+}
+
+form button {
+    font-size: 1.5rem;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    background: transparent;
+    border: 0;
+
+    transition: transform 0.3s ease 0s;
+}
+
+form button:hover {
+    cursor: pointer;
+    transform: translateY(-5px);
+}
+
+.container ul {
+    width: 100%;
+    height: 100%;
+
+    list-style: none;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+
+}
+
+ul .weather {
+    text-align: center;
+}
+
+ul .weather-icon {
+    font-size: 6rem;
+    transition: transform 0.3s ease-in-out;
+
+    animation: moveUp 2s ease 0s infinite normal none;
+}
+
+ul .details {
+    width: 100%;
+    font-size: 1rem;
+    
+    display: flex;
+    justify-content: space-around;
+}
+
+
+
+@keyframes moveUp {
+    0% {
+        transform: translateY(0);
+    }
+
+    50% {
+        transform: translateY(-20px);
+    }
+
+    100% {
+        transform: translateY(0);
+    }
+}
